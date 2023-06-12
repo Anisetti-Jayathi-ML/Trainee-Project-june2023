@@ -1,0 +1,67 @@
+import csv
+import pandas
+import random
+
+def read_questions_from_csv():
+    
+    questions = []
+    with open(r"C:\Users\Lakshanya.MAPLELABSAD\Documents\questions.csv",encoding='latin1') as csv_file:
+        reader = csv.reader(csv_file)
+        next(reader)  # Skip the header row
+        for row in reader:
+            questions.append({'question': row[0], 'answer': row[1], 'topic': row[2]})
+    return questions
+
+def generate_quiz(topic, questions):
+    quiz = random.sample(questions[topic], 10)
+    random.shuffle(quiz)
+    return quiz
+
+def ask_question(question):
+    user_answer = input(f"\n{question['question']}? ")
+    return user_answer.lower().strip()
+
+def verify_answer(question, user_answer):
+    if user_answer == question['answer'].lower().strip():
+        print("Correct!")
+        return 1
+    else:
+        print(f"Wrong! The correct answer is: {question['answer']}")
+        return 0
+
+def play_quiz(quiz):
+    score = 0
+    for question in quiz:
+        user_answer = ask_question(question)
+        score += verify_answer(question, user_answer)
+    return score
+
+def main():
+    #file_path = 'C:\Users\Lakshanya.MAPLELABSAD\Documents'  # Replace with the path to your CSV file
+    topics = set()
+    questions = {}
+
+    # Read questions from CSV file and organize them by topic
+    all_questions = read_questions_from_csv()
+    for question in all_questions:
+        topic = question['topic']
+        topics.add(topic)
+        if topic not in questions:
+            questions[topic] = []
+        questions[topic].append(question)
+
+    print("Welcome to the Quiz Master!")
+    print("Available topics:", ", ".join(topics))
+    selected_topic = input("Please select a topic: ")
+
+    if selected_topic not in questions:
+        print("Invalid topic selection. Exiting...")
+        return
+
+    quiz = generate_quiz(selected_topic, questions)
+    score = play_quiz(quiz)
+
+    print(f"\nYour score: {score}/10")
+
+if __name__ == '__main__':
+    main()

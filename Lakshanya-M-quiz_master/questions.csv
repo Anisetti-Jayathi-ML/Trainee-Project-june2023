@@ -1,0 +1,21 @@
+question,answer,topic
+ Who developed Python Programming Language?, Guido van Rossum,python
+Is Python case sensitive when dealing with identifiers?,yes,python
+Extension of the Python file?,.py,python
+Whichg is used to define a block of code in Python language?, Indentation,python
+Which keyword is used for function in Python language?, def,python
+Which of the following character is used to give single-line comments in Python?,#,python
+"Python supports the creation of anonymous functions at runtime, using a construct called?", lambda,python
+What does pip stand for python?,Preferred Installer Program,python
+Which  statements is used to create an empty set in Python?,set(),python
+To add a new element to a list we use which Python command?, list1.append(5),python
+Who invented Java Programming?,James Gosling,java
+"Which component is used to compile, debug and execute the java programs?", JDK,java
+ What is the extension of java code files?, .java,java
+Which environment variable is used to set the java path?, JAVA_HOME,java
+ What is the extension of compiled java classes?, .class,java
+Which exception is thrown when java is out of memory?, OutOfMemoryError,java
+Which keyword is used to define interfaces in Java?,interface,java
+Which class is a superclass of every class in Java?, Object class,java
+What is the numerical range of a char data type in Java?,0 to 65535,java
+Which class provides system independent server side implementation?, ServerSocket,java
